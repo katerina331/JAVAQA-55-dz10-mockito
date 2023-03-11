@@ -1,6 +1,14 @@
 public class ManagerPosters {
     private Poster[] items = new Poster[0];
+    private int lim;
 
+    public ManagerPosters() {
+        this.lim = 10;
+    }
+
+    public ManagerPosters(int limit) {
+        this.lim = limit;
+    }
 
     public void add(Poster item) {
         Poster[] temp = new Poster[items.length + 1];
@@ -15,17 +23,9 @@ public class ManagerPosters {
         return items;
     }
 
-    public Poster[] findLast() {
-        int lengthM = Math.min(items.length, 10);
-        Poster[] temp = new Poster[lengthM];
-        for (int i = 0; i < lengthM; i++) {
-            temp[i] = items[items.length - 1 - i];
-        }
-        return temp;
-    }
 
-    public Poster[] findLast(int lengthF) {
-        int lengthM = Math.min(items.length, lengthF);
+    public Poster[] findLast() {
+        int lengthM = Math.min(items.length, lim);
         Poster[] temp = new Poster[lengthM];
         for (int i = 0; i < lengthM; i++) {
             temp[i] = items[items.length - 1 - i];

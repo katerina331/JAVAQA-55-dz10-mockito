@@ -94,8 +94,16 @@ public class ManagerPosterTest {
 
     @Test
     public void findLastFilmTest() {
+        ManagerPosters manager = new ManagerPosters(4);
+        manager.add(item1);
+        manager.add(item2);
+        manager.add(item3);
+        manager.add(item4);
+        manager.add(item5);
+        manager.add(item6);
+
         Poster[] expected = {item6, item5, item4, item3};
-        Poster[] actual = manager.findLast(4);
+        Poster[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
